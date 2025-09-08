@@ -20,7 +20,7 @@ const differenceX = addressLat - positionLat;
 const differenceY = addressLong - positionLong;
 
 //Возведем результаты в квадрат и сложим:
-console.log((differenceX) ** 2 + (differenceY) ** 2);
+const sumOfSquares = ((differenceX) ** 2 + (differenceY) ** 2);
 
 // Извлечем квадратный корень:
-console.log(Math.sqrt(25));
+console.log(Math.sqrt(sumOfSquares));

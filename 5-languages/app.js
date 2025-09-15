@@ -1,20 +1,20 @@
 
-let lang = 'es';
+let lang = prompt('На каком языке вы говорите (What language do you speak)?');
 
 switch (lang) {
-    case 'en':
+    case 'english':
         console.log('Hello!');
         break
-    case 'ru':
+    case 'русский':
         console.log('Здравствуйте!');
         break
-    case 'de':
+    case 'deutsch':
         console.log('Hallo!');
         break
-    case 'fr':
+    case 'français':
         console.log('Bonjour!');
         break
-    case 'es':
+    case 'español':
         console.log('¡Hola!');
         break
     default:

@@ -1,7 +1,7 @@
 const arr = [1, 40, -5, 10, 0];
 
 function sortedArray(arr) {
-    const sortedArray = [...arr]; // Создаем копию массива
+    const sortedArray = [...arr]; // Создаем копию массива.
     const n = sortedArray.length;
     for ( let i = 0; i < n - 1; i++) {
         for (let j = 0; j < n - 1 -i; j++) {

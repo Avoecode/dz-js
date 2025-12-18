@@ -46,7 +46,7 @@ function filterAndFormatDates(dates) {
 
         if (day > monthDays[month - 1]) return null;
         // Возвращаем корректные значения
-        return [day, month, year];
+        return [day, month, fullYear];
     }
     // Фильтруем и форматируем
     return dates
@@ -54,12 +54,12 @@ function filterAndFormatDates(dates) {
             const parsed = parseAndValidate(str);// Парсим и валидируем строку с датой
             if (!parsed) return null;
 
-            const [day, month, year] = parsed;// Деструктурируем результат парсинга на отдельные переменные
+            const [day, month, fullYear] = parsed;// Деструктурируем результат парсинга на отдельные переменные
             const formattedDay = day.toString().padStart(2, '0');// Форматируем день: добавляем ведущий ноль, если число однозначное. Например: 1 → "01", 10 → "10"
             const formattedMonth = month.toString().padStart(2, '0');// Форматируем месяц аналогично дню
-            const formattedYear = year.toString().slice(-2); // Форматируем год: берем только последние 2 цифры
+            const formattedYear = fullYear.toString(); // Форматируем год: берем только последние 2 цифры
 
-            return `${formattedDay}.${formattedMonth}.${formattedYear}`;// Собираем все отформатированные части в строку формата "DD.MM.YY"
+            return `${formattedDay}-${formattedMonth}-${formattedYear}`;// Собираем все отформатированные части в строку формата "DD-MM-YY"
         })
         .filter(date => date !== null);
 

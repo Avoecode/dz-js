@@ -16,6 +16,7 @@ const ToDoList = {
         if (!task) {
             //Если задача не найдена, выводим сообщение об ошибке
             console.log('Задача не найдена');
+            return
         }
         // Проверяем на наличие свойства title (даже если это пустая строка)
         if (updates.title !== undefined) {
@@ -31,9 +32,8 @@ const ToDoList = {
         return task
     },
     sortByPriority: function () {
-        const sortedTasks = [...this.tasks];
         this.tasks.sort((a, b) => a.priority - b.priority);
-        return sortedTasks
+        console.log('Задачи отсортированы по приоритету (по возрастанию)')
     }
 }
 ToDoList.addTask('Сделать уроки', 1, 2);

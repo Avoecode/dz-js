@@ -38,7 +38,7 @@ const ToDoList = {
         console.log('Задачи отсортированы по приоритету (по возрастанию)')
     }
 }
-//Новый объект
+// //Новый объект
 const newTask = {
     tasks: [{
         id: 1,
@@ -47,9 +47,10 @@ const newTask = {
         order: 0
     }]
 };
+
 //Добавляем задачи в новый объект(используем метод addTask)
 ToDoList.addTask.call(newTask, 'Постирать вещи', 1, 2);
-ToDoList.addTask.call(newTask, 'Выпить витамины', 3, 3 );
+ToDoList.addTask.apply(newTask, ['Выпить витамины', 3, 3] );
 ToDoList.addTask.call(newTask, 'Позаниматься гимнастикой', 2, 1);
 
 console.log('Список после добавления задач:', newTask.tasks);
@@ -58,10 +59,9 @@ console.log('Список после добавления задач:', newTask.
 ToDoList.deleteTask.call(newTask, 3);
 
 console.log('Список после удаления задач:', newTask.tasks);
-
 // Обновляем задачу
 const newUpDateList = ToDoList.updateTask.bind(newTask) 
-newUpDateList(2, { title: 'Сделать домашнее задание' });
+newUpDateList(2, { title: 'Выпить кофе' });
 
 //Список задач после обновления
 console.log('Список после обновления задач:', newTask.tasks);

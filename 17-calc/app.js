@@ -29,9 +29,9 @@ function initCalculator() {
 		const value2 = inputValue2.value.trim();
 
 		// Проверяем, что оба поля заполнены
-		if (value1 === '' && value2 === '') {
+		if (value1 === '' || value2 === '') {
 			panel.textContent = 'Ошибка: заполните оба поля';
-			return;
+			return null;
 		}
 		//Преобразуем строки из полей ввода в числа
 		const num1 = Number(value1);
@@ -70,7 +70,7 @@ function initCalculator() {
 	function multiplication() {
 		const nums = getValidNumbers();
 		if (!nums) return; // если ошибка – выход
-		//Вычитание
+		//Умножение
 		const res = nums.num1 * nums.num2;
 		panel.innerText = `Результат умножения  ${res}`;
 		console.log(`Результат умножения равен  ${res}`);
@@ -81,7 +81,12 @@ function initCalculator() {
 	function division() {
 		const nums = getValidNumbers();
 		if (!nums) return; // если ошибка – выход
-		//Вычитание
+		// Проверка деления на ноль
+		if (nums.num2 === 0) {
+			panel.textContent = 'Ошибка: деление на ноль';
+			return;
+		}
+		//Деление
 		const res = nums.num1 / nums.num2;
 		panel.innerText = `Результат деления  ${res}`;
 		console.log(`Результат деления равен  ${res}`);
@@ -89,9 +94,9 @@ function initCalculator() {
 		inputValue1.value = '';
 		inputValue2.value = '';
 	}
-	 // Навешиваем обработчики на кнопки
-    if (btnAdd) btnAdd.addEventListener('click', addition);
-    if (btnSub) btnSub.addEventListener('click', subtraction);
-    if (btnMul) btnMul.addEventListener('click', multiplication);
-    if (btnDiv) btnDiv.addEventListener('click', division);
+	// Навешиваем обработчики на кнопки
+	if (btnAdd) btnAdd.addEventListener('click', addition);
+	if (btnSub) btnSub.addEventListener('click', subtraction);
+	if (btnMul) btnMul.addEventListener('click', multiplication);
+	if (btnDiv) btnDiv.addEventListener('click', division);
 }
